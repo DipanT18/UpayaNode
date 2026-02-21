@@ -29,7 +29,7 @@ DEBUG = os.environ.get('DEBUG', '1').strip().lower() in ('1', 'true', 'yes')
 _allowed = os.environ.get('ALLOWED_HOSTS', '').strip()
 ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()] if _allowed else []
 if DEBUG and not ALLOWED_HOSTS:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://upayanode.onrender.com']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'upayanode.onrender.com']
 
 
 # Application definition
