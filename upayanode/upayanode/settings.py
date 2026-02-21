@@ -173,3 +173,5 @@ CACHES = {
 #     }
 # }
 
+# settings.py
+CSRF_TRUSTED_ORIGINS = ['https://upayanode.onrender.com'] # Include the https:// here
