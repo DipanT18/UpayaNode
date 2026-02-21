@@ -1,0 +1,6 @@
+# UpayaNode – Python dependencies
+# Use with: pip install -r requirements.txt
+
+Django>=4.2,<6
+redis>=4.5.0
+gunicorn>=21.0.0

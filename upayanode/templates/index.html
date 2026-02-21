@@ -1,0 +1,235 @@
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UpayaNode – Solving Problems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/styles.css' %}" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <nav class="nav-container">
+      <div class="logo-wrap">
+        <div class="logo-mark">
+          <span class="logo-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="16" stroke="#fff" stroke-width="2.5"/>
+              <circle cx="18" cy="18" r="6" fill="#fff"/>
+              <line x1="18" y1="2" x2="18" y2="12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="18" y1="24" x2="18" y2="34" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="2" y1="18" x2="12" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="24" y1="18" x2="34" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="logo-text">UpayaNode</span>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="{% url 'signin' %}" class="nav-cta">Get Started</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Anonymous · Local · Judgment-Free</p>
+      <h1 class="hero-title">Ask Freely<br/><span class="accent">Help Locally.</span></h1>
+      <p class="hero-sub">UpayaNode is a safe space to share your problems without revealing who you are. No public profile, no judgment — just real people from your community offering real answers.</p>
+      <a href="{% url 'signin' %}" class="btn-primary" id="get-started">Get Started <span class="btn-arrow">→</span></a>
+    </div>
+    <div class="hero-visual">
+      <div class="node-animation" id="nodeCanvas">
+        <div class="pulse-ring r1"></div>
+        <div class="pulse-ring r2"></div>
+        <div class="pulse-ring r3"></div>
+        <div class="center-node">UN</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <div class="section-tag">Who We Are</div>
+      <h2 class="section-title">About Us</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead">UpayaNode is a community platform built around one truth — people have real problems but hesitate to ask because they fear being seen. We remove that fear entirely.</p>
+          <p>We believe your local problem deserves a local solution. Whether it's a personal struggle, a neighborhood issue, or something you've never said out loud — this is the place to say it. Anonymously, safely, and without consequence.</p>
+          <p>There's no username attached to your name, no profile people can trace. You're not a client here — you're a neighbor. And your neighbors are listening.</p>
+        </div>
+        <div class="about-cards">
+          <div class="stat-card" data-delay="0">
+            <span class="stat-num">10K+</span>
+            <span class="stat-label">Members Aiming</span>
+          </div>
+          <div class="stat-card" data-delay="100">
+            <span class="stat-num">99.9%</span>
+            <span class="stat-label">Uptime</span>
+          </div>
+          <div class="stat-card" data-delay="200">
+            <span class="stat-num">1000+</span>
+            <span class="stat-label">Solutions Aimed</span>
+          </div>
+          <div class="stat-card" data-delay="300">
+            <span class="stat-num">24/7</span>
+            <span class="stat-label">Available Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES STRIP -->
+  <section class="services-strip">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-item">
+          <div class="svc-icon">🎭</div>
+          <h3>Stay Anonymous</h3>
+          <p>Share your problem without revealing who you are. No name, no profile, no trace</p>
+        </div>
+        <div class="service-item">
+          <div class="svc-icon">📍</div>
+          <h3>Local First</h3>
+          <p>Your neighborhood problems reach people who actually live your reality</p>
+        </div>
+        <div class="service-item">
+          <div class="svc-icon">💬 </div>
+          <h3>Community Answers</h3>
+          <p>Real replies from real people who've been exactly where you are</p>
+        </div>
+        <div class="service-item">
+          <div class="svc-icon">🔄</div>
+          <h3>Scroll & Discover</h3>
+          <p>A simple feed of problems and solutions. Help someone while you're helped</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="section-tag">Reach Out</div>
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <p class="lead">We'd love to hear from you. Whether you have a question about our services, pricing, or anything else — our team is ready to answer all your questions.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon">📍</span>
+              <div><strong>Address</strong><br/>Kathmandu University, Dhulikhel, Nepal</div>
+            </li>
+            <li>
+              <span class="contact-icon">📧</span>
+              <div><strong>Email</strong><br/>upayanode@proton.me</div>
+            </li>
+            <li>
+              <span class="contact-icon">📞</span>
+              <div><strong>Phone</strong><br/>+977 0000000000</div>
+            </li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="john@company.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="How can we help?" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Message <span class="btn-arrow">→</span></button>
+          <div class="form-success" id="formSuccess">✅ Message sent! We'll be in touch soon.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <div class="logo-mark footer-logo">
+          <span class="logo-icon">
+            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="16" stroke="#fff" stroke-width="2.5"/>
+              <circle cx="18" cy="18" r="6" fill="#fff"/>
+              <line x1="18" y1="2" x2="18" y2="12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="18" y1="24" x2="18" y2="34" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="2" y1="18" x2="12" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="24" y1="18" x2="34" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="logo-text">UpayaNode</span>
+        </div>
+        <p class="footer-tagline">Solve Problems. Anonymously.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">⌥</a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <!-- <li><a href="#">Careers</a></li> -->
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <!-- <li><a href="#">Pricing</a></li> -->
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 UpayaNode. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'JS/index.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+{%load static%}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>UpayaNode – Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/signin.css' %}" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="auth-header">
+    <a href="{% url 'index' %}" class="logo-mark">
+      <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="16" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="18" cy="18" r="6" fill="#fff"/>
+        <line x1="18" y1="2" x2="18" y2="12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="18" y1="24" x2="18" y2="34" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="2" y1="18" x2="12" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="24" y1="18" x2="34" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span>UpayaNode</span>
+    </a>
+    <a href="{% url 'signup' %}" class="header-link">New here? <strong>Create Identity</strong></a>
+  </header>
+
+  <!-- MAIN -->
+  <main class="auth-main">
+    <div class="auth-card" id="authCard">
+
+      <!-- Default: sign in form -->
+      <div class="signin-panel" id="signinPanel">
+
+        <div class="card-icon">🔑</div>
+        <h1 class="card-title">Welcome Back.</h1>
+        <p class="card-sub">Enter your passphrase to return to your anonymous identity. No name. No email. Just the words you saved.</p>
+
+        <div class="form-group">
+          <label for="passphraseInput">Your Passphrase</label>
+          <div class="input-wrap">
+            <input
+              type="password"
+              id="passphraseInput"
+              placeholder="word-word-word-word-word"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="eye-btn" id="eyeBtn" title="Show passphrase">👁</button>
+          </div>
+          <span class="input-hint" id="inputHint"></span>
+        </div>
+
+        <!-- Word pills (live feedback as user types) -->
+        <div class="word-pills" id="wordPills" aria-hidden="true"></div>
+
+        <button class="btn-primary" id="signInBtn" disabled>
+          Enter UpayaNode <span>→</span>
+        </button>
+
+        <div class="divider"><span>or</span></div>
+
+        <button class="btn-ghost" id="showForgotBtn">
+          I lost my passphrase
+        </button>
+
+      </div>
+
+      <!-- Forgot state -->
+      <div class="forgot-panel" id="forgotPanel" style="display:none;">
+        <div class="card-icon">😶</div>
+        <h1 class="card-title">No Way Back.</h1>
+        <p class="card-sub">This is the design — not a limitation. We store nothing that can recover your old identity. That passphrase was the only key.</p>
+
+        <div class="no-recovery-box">
+          <p>💡 The good news? You can create a fresh anonymous identity right now. Your old one is gone forever — and that's exactly how we keep you safe.</p>
+        </div>
+
+        <a href="{% url 'signup' %}" class="btn-primary">Create a New Identity <span>→</span></a>
+        <button class="btn-ghost" id="backToSignin">← Back to Sign In</button>
+      </div>
+      
+      <!-- Success state -->
+      <div class="success-panel" id="successPanel" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h1 class="card-title">You're In.</h1>
+        <p class="card-sub">Identity verified. No one knows it's you — and that's the whole point.</p>
+        <div class="identity-reveal">
+          <span class="id-label">Session Node</span>
+          <span class="id-value" id="nodeId">Node #----</span>
+          <span class="id-note">Temporary session label. Resets on sign out.</span>
+        </div>
+        <a href="{% url 'home' %}" class="btn-primary">Continue to UpayaNode <span>→</span></a>
+      </div>
+
+    </div>
+
+    <!-- Side note -->
+    <div class="auth-note">
+      <p>🔒 <strong>Zero-knowledge.</strong> Your passphrase is hashed on entry — we never see the raw value, and it is never linked to any post, comment, or activity on the platform.</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="auth-footer">
+    <p>© 2025 UpayaNode &nbsp;·&nbsp; <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+  </footer>
+
+  <script src="{% static 'JS/signin.js' %}"></script>
+</body>
+</html>
