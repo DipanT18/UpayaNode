@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dev-key-change-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', '1').strip().lower() in ('1', 'true', 'yes')
+DEBUG = os.environ.get('DEBUG', '1').strip().lower() in ('1', 'false', 'no')
 
 _allowed = os.environ.get('ALLOWED_HOSTS', '').strip()
 ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()] if _allowed else []
 if DEBUG and not ALLOWED_HOSTS:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'upayanode.onrender.com']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'upayanode.onrender.com','*']
 
 
 # Application definition
@@ -173,5 +173,5 @@ CACHES = {
 #     }
 # }
 
-# settings.py
+    # CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = ['https://upayanode.onrender.com'] # Include the https:// here
